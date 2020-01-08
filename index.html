@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Board Clone</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type=""
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script> -->
+
+    <script type="text/javascript" src="trello.js"></script>
+    <!-- <script type="text/javascript" src="trello22.js"></script> -->
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <div class="header-title">Trello Board</div>
+            <div class="header-content">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for tasks..." />
+                </div>
+
+                <div style="width: 200px; height: 50px;">
+                    <a href="#" style="position: relative;top: -13px;height: 100%;width: 100px;margin-left: 8px;"><img
+                            class="responsive-image" style="width: 180px;height: 80px;top: -15px;"
+                            src="Gwen_logo-trello.png" alt="No Image Found" /></a>
+                </div>
+
+
+
+                <div class="header-profile">
+                    <div class="nav-btn">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="nav-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="alert-dot"></span>
+                    </div>
+                    <div class="profile-name">
+                        Saurabh Jain
+                    </div>
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <div class="sidebar-item">
+                    <div class="sidebar-item-icon"> <i class="fas fa-users"></i> </div>
+                    <div class="sidebar-item-title"> Manage </div>
+                </div>
+                <div class="sidebar-item sidebar-item-active">
+                    <div class="sidebar-item-icon"> <i class="fas fa-list"></i> </div>
+                    <div class="sidebar-item-title"> Boards </div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-icon"> <i class="far fa-calendar-alt"></i> </div>
+                    <div class="sidebar-item-title"> Schedule </div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-icon"> <i class="fas fa-chart-bar"></i> </div>
+                    <div class="sidebar-item-title"> Reports </div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-icon"> <i class="fas fa-cog"></i> </div>
+                    <div class="sidebar-item-title"> Settings </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="board-header">
+                    <div class="board-header-title">
+                        <span style="color:brown;"><b>Board Name: </b></span><span style="color:black;"> Test</span>
+                    </div>
+                    <div class="board-header-people">
+                        <div><i class="fas fa-user"></i></div>
+                        <div><i class="fas fa-user"></i></div>
+                        <div><i class="fas fa-user"></i></div>
+                        <div><i class="fas fa-user"></i></div>
+                        <div><i class="fas fa-plus"></i></div>
+                    </div>
+                </div>
+                <div class="board-container" id="boardContainer">
+
+                    <!-- -------------------------------------------------------------------------------------- -->
+                    <div style="width: 300px;margin-left: 50px;">
+                        <div class="board-List-content" id="input-content" style="border-top-style: solid;
+                        border-right-style: solid;
+                        border-bottom-style: solid;
+                        border-left-style: solid;background-color: #3a3a3c;">
+
+                        </div>
+
+                        <div class="row" style="min-width: 250px;max-width: 250px;background-color: #eee;margin: 1em;padding: 5px 0;border-radius: 4px;color: #666;box-shadow: 1px 1px 6px 3px #e0e0e0;border: 1px solid #eee;
+                        border-top: 3px solid #5bc796;">
+                            <div id="boardlist-container" class="col-6" style="left: -10px;">
+                                <ul class="list-group" id="list"
+                                    style="position:relative;color: #666;list-style: none;left: -29px;width: 230px;">
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="min-width: 250px;max-width: 250px;background-color: #eee;margin: 1em;padding: 5px 0;border-radius: 4px;color: #666;box-shadow: 1px 1px 6px 3px #e0e0e0;border: 1px solid #eee;
+                        border-top: 3px solid #5bc796;">
+                            <div class="col-5">
+                                <input type="text" class="form-control" id="input" style="position: relative;    width: calc(100% - 1em);
+                                margin: .5em;
+                                padding: .8em 1em;
+                                border-radius: 4px;
+                                text-align: center;
+                                color: #888;
+                                cursor: pointer;
+                                border: none;
+                                outline: none;
+                                background: none;left: -8px;" placeholder="Enter Card Name">
+                            </div>
+                            <div class="col-2">
+                                <button id="btn-add" class="btn btn-outline-primary"
+                                    style="position: relative;left: 100px;background-color: #3a3a3c;color: #ddd;">ADD</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="layer1" onclick="closePopup()">
+
+                    </div>
+                    <div id="pop-up" style="background-color: #f4f5f7;
+                    border-radius: 2px;">
+
+
+                    </div>
+
+                    <!-- -------------------------------------------------------------------------------------- -->
+
+                    <div style="width: 300px;margin-left: 50px;">
+                        <div class="board-List-content" id="input-content" style="border-top-style: solid;
+                            border-right-style: solid;
+                            border-bottom-style: solid;
+                            border-left-style: solid;background-color: #3a3a3c;">
+
+                        </div>
+
+                        <div class="row" style="min-width: 250px;max-width: 250px;background-color: #eee;margin: 1em;padding: 5px 0;border-radius: 4px;color: #666;box-shadow: 1px 1px 6px 3px #e0e0e0;border: 1px solid #eee;
+                            border-top: 3px solid #5bc796;">
+                            <div id="boardlist-container" class="col-6" style="left: -10px;">
+                                <ul class="list-group" id="list"
+                                    style="position:relative;color: #666;list-style: none;left: -20px;">
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="min-width: 250px;max-width: 250px;background-color: #eee;margin: 1em;padding: 5px 0;border-radius: 4px;color: #666;box-shadow: 1px 1px 6px 3px #e0e0e0;border: 1px solid #eee;
+                            border-top: 3px solid #5bc796;">
+                            <div class="col-5">
+                                <input type="text" class="form-control" id="input" style="position: relative;    width: calc(100% - 1em);
+                                    margin: .5em;
+                                    padding: .8em 1em;
+                                    border-radius: 4px;
+                                    text-align: center;
+                                    color: #888;
+                                    cursor: pointer;
+                                    border: none;
+                                    outline: none;
+                                    background: none;left: -8px;" placeholder="Enter Card Name">
+                            </div>
+                            <div class="col-2">
+                                <button id="btn-add" class="btn btn-outline-primary"
+                                    style="position: relative;left: 100px;background-color: #3a3a3c;color: #ddd;">ADD</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="layer1" onclick="closePopup()">
+
+                    </div>
+                    <div id="pop-up">
+
+
+                    </div>
+                    <!-- ----------------------------------------------------------------------------------------- -->
+                    <!-- Task List Will be rendered here -->
+
+                    <!-- <div class="task-list-wrapper" id="newListWrapper">
+                        <div class="task-list-card new-list-card">
+                            <button class="task-add" id="createListButton">
+                                Create New List
+                                <i class="fas fa-plus"></i>
+                            </button>
+
+                            <form class="task-add-form hidden" id="createListForm">
+                                <input name="listTitle" type="text" placeholder="Enter title of the list" autofocus
+                                    required />
+                                <button type="submit" class="btn-success"> Add List </button>
+                            </form>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div
+                    style="position: fixed; bottom: 0;background-color: black;width: 100%;text-align: center;color: #3a3a3c;height: 40px;margin-left: 1px;/*background-color:rgba(0,400,400,0.3)*/;">
+                    <span
+                        style="position: relative; ;top: 5px; font-size: 18px;font-family: Source Sans Pro;letter-spacing: 2px;"><b>
+                            <p style="width: 500px; margin-left: 600px;margin-top: 4px;font-weight: 2000;">This Is My
+                                Board</p></span><b></b></span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="footer"></div>
+    </div>
+    <!-- <script src="trello.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+</body>
+
+</html>
